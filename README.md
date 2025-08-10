@@ -102,4 +102,3 @@ onchaincred/
 └─ docs/               # Documentation
 ```
 
-Built for hackathons - optimized for rapid deployment and impressive demos! 🏆
