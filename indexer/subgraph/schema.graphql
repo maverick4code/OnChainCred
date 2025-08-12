@@ -1,0 +1,64 @@
+type User @entity {
+  id: ID!
+  address: Bytes!
+  totalScore: BigInt!
+  transactionCount: BigInt!
+  stakeAmount: BigInt!
+  lendingVolume: BigInt!
+  attestationCount: BigInt!
+  lastUpdated: BigInt!
+  transactions: [Transaction!]! @derivedFrom(field: user)
+  stakeEvents: [StakeEvent!]! @derivedFrom(field: user)
+  lendingEvents: [LendingEvent!]! @derivedFrom(field: user)
+  attestations: [Attestation!]! @derivedFrom(field: user)
+}
+
+type Transaction @entity {
+  id: ID!
+  hash: Bytes!
+  user: User!
+  type: String!
+  value: BigInt!
+  timestamp: BigInt!
+  chainId: BigInt!
+  blockNumber: BigInt!
+  from: Bytes!
+  to: Bytes
+  protocol: String
+}
+
+type StakeEvent @entity {
+  id: ID!
+  user: User!
+  amount: BigInt!
+  pool: String!
+  timestamp: BigInt!
+  chainId: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}
+
+type LendingEvent @entity {
+  id: ID!
+  user: User!
+  type: String! # borrow, repay, deposit, withdraw
+  amount: BigInt!
+  protocol: String!
+  timestamp: BigInt!
+  chainId: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+  asset: String
+}
+
+type Attestation @entity {
+  id: ID!
+  user: User!
+  issuer: Bytes!
+  content: String!
+  score: BigInt!
+  timestamp: BigInt!
+  chainId: BigInt!
+  txHash: Bytes!
+  blockNumber: BigInt!
+}

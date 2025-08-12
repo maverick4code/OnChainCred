@@ -1,0 +1,36 @@
+{
+  "name": "onchaincred-web",
+  "version": "1.0.0",
+  "description": "OnChainCred Frontend Application",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "wagmi": "^1.4.0",
+    "rainbowkit": "^1.2.0",
+    "ethers": "^5.7.2",
+    "viem": "^1.19.0",
+    "@rainbow-me/rainbowkit": "^1.2.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.2.2",
+    "eslint": "^8.51.0",
+    "eslint-config-next": "^14.0.0"
+  },
+  "keywords": ["blockchain", "credit-score", "zk-proofs", "ethereum"],
+  "author": "OnChainCred Team",
+  "license": "MIT"
+}

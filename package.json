@@ -1,0 +1,88 @@
+{
+  "name": "onchaincred",
+  "version": "1.0.0",
+  "description": "Privacy-preserving, verifiable crypto credit score protocol with zero-knowledge proofs",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install && cd scoring_engine && npm install && cd ../web && npm install && cd ../indexer/rpc_poller && npm install",
+    "build:all": "npm run build:contracts && npm run build:circuits && npm run build:scoring && npm run build:frontend",
+    "build:contracts": "cd hardhat && npm run compile",
+    "build:circuits": "cd circom && npm run build",
+    "build:scoring": "cd scoring_engine && npm run build",
+    "build:frontend": "cd web && npm run build",
+    "deploy:sepolia": "cd hardhat && npm run deploy:sepolia",
+    "deploy:mumbai": "cd hardhat && npm run deploy:mumbai",
+    "deploy:all": "npm run deploy:sepolia && npm run deploy:mumbai",
+    "test:all": "npm run test:contracts && npm run test:scoring",
+    "test:contracts": "cd hardhat && npm run test",
+    "test:scoring": "cd scoring_engine && npm run test",
+    "indexer:start": "cd indexer/rpc_poller && npm start",
+    "scoring:compute": "cd scoring_engine && npm run compute",
+    "frontend:dev": "cd web && npm run dev",
+    "frontend:build": "cd web && npm run build",
+    "frontend:start": "cd web && npm start",
+    "demo:start": "npm run indexer:start & npm run scoring:compute & npm run frontend:dev",
+    "demo:prepare-data": "cd scoring_engine && npm run generate-sample-data",
+    "demo:reset": "cd scoring_engine && npm run reset-demo",
+    "demo:status": "cd scoring_engine && npm run demo-status",
+    "demo:fallback": "cd scripts && npm run demo-fallback",
+    "health:check": "cd scripts && npm run health-check",
+    "testnet:status": "cd scripts && npm run testnet-status",
+    "prove:generate": "cd circom && npm run prove",
+    "prove:verify": "cd circom && npm run verify",
+    "clean": "rm -rf node_modules && cd scoring_engine && rm -rf node_modules && cd ../web && rm -rf node_modules && cd ../indexer/rpc_poller && rm -rf node_modules",
+    "lint": "npm run lint:contracts && npm run lint:scoring && npm run lint:frontend",
+    "lint:contracts": "cd hardhat && npm run lint",
+    "lint:scoring": "cd scoring_engine && npm run lint",
+    "lint:frontend": "cd web && npm run lint",
+    "format": "npm run format:contracts && npm run format:scoring && npm run format:frontend",
+    "format:contracts": "cd hardhat && npm run format",
+    "format:scoring": "cd scoring_engine && npm run format",
+    "format:frontend": "cd web && npm run format"
+  },
+  "keywords": [
+    "blockchain",
+    "defi",
+    "credit-scoring",
+    "zero-knowledge",
+    "privacy",
+    "ethereum",
+    "polygon",
+    "circom",
+    "solidity"
+  ],
+  "author": "OnChainCred Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onchaincred/onchaincred.git"
+  },
+  "bugs": {
+    "url": "https://github.com/onchaincred/onchaincred/issues"
+  },
+  "homepage": "https://onchaincred.com",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "prettier": "^3.0.0",
+    "eslint": "^8.0.0"
+  },
+  "workspaces": [
+    "scoring_engine",
+    "web",
+    "indexer/rpc_poller",
+    "hardhat"
+  ],
+  "dependencies": {
+    "ethers": "^6.0.0",
+    "web3": "^4.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "overrides": {
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "onchaincred-rpc-poller",
+  "version": "1.0.0",
+  "description": "RPC-based indexer for OnChainCred",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "poll": "ts-node src/index.ts --poll",
+    "export": "ts-node src/index.ts --export"
+  },
+  "dependencies": {
+    "ethers": "^5.7.2",
+    "commander": "^11.1.0",
+    "dotenv": "^16.3.1",
+    "pg": "^8.11.3",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@types/pg": "^8.10.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "keywords": ["blockchain", "indexer", "ethereum", "credit-score"],
+  "author": "OnChainCred Team",
+  "license": "MIT"
+}
